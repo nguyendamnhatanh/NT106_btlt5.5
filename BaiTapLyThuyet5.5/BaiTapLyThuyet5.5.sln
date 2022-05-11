@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiTapLyThuyet5.5", "BaiTapLyThuyet5.5\BaiTapLyThuyet5.5.csproj", "{9B868055-35FF-483B-9713-4083AB2F9B1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B868055-35FF-483B-9713-4083AB2F9B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B868055-35FF-483B-9713-4083AB2F9B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B868055-35FF-483B-9713-4083AB2F9B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B868055-35FF-483B-9713-4083AB2F9B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {865AB0DB-B600-4ACA-8C44-723DF14B22D7}
+	EndGlobalSection
+EndGlobal
