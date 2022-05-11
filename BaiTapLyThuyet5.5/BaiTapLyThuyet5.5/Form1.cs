@@ -48,15 +48,15 @@ namespace BaiTapLyThuyet5._5
                 client.Authenticate(send_emailBox.Text, pwdBox.Text, cancel.Token);
                 inbox = client.Inbox;
 
-                inbox.Open(FolderAccess.ReadOnly,cancel.Token);
+                inbox.Open(FolderAccess.ReadOnly);
 
                 for (int i = 0; i < inbox.Count; i++)
                 {
-                    var content = inbox.GetMessage(i,cancel.Token);
+                    var content = inbox.GetMessage(i);
                     ListViewItem name = new ListViewItem(content.Subject);
-                    Console.WriteLine(content);
                     ListViewItem.ListViewSubItem from = new ListViewItem.ListViewSubItem(name, content.From.ToString());
                     name.SubItems.Add(from);
+                    inboxBox.Items.Add(name);
                 }
             }
         }
@@ -74,7 +74,11 @@ namespace BaiTapLyThuyet5._5
                 if (box.Contains(e.Location))
                 {
                     var content = inbox.GetMessage(i);
-                    string from = "", subject = "", to = "", body = "";
+                    string from, subject, to, body;
+                    from = "";
+                    subject = "";
+                    to = "";
+                    body = "";
                     if (content.From != null)
                     {
                         from = content.From.ToString();
@@ -110,6 +114,11 @@ namespace BaiTapLyThuyet5._5
             mail.From = new MailAddress(from);
             mail.Subject = subjectBox.Text;
             mail.Body = contentBox.Text;
+            if (pathBox.Text != "")
+            {
+                Attachment attachment = new Attachment(pathBox.Text);
+                mail.Attachments.Add(attachment);
+            }
 
             SmtpClient smtpClient = new SmtpClient("find-uit.f1301.cyou");
             smtpClient.Port = 587;
@@ -120,47 +129,8 @@ namespace BaiTapLyThuyet5._5
 
             smtpClient.Send(mail);
 
-            //sendMail(subject, body, to, from, password);
+           
         }
-
-        //private void sendMail(string subject, string body, string to, string from, string password)
-        //{
-
-        //    using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"))
-        //    {
-        //        smtpClient.Port = 465;
-        //        smtpClient.EnableSsl = true;
-        //        smtpClient.UseDefaultCredentials = false;
-        //        smtpClient.Credentials = new NetworkCredential(from, password);
-
-        //        using (MailMessage message = new MailMessage())
-        //        {
-        //            MailAddress fromAddress = new MailAddress(from);
-        //            message.From = fromAddress;
-        //            message.Subject = subject;
-        //            message.IsBodyHtml = true;
-        //            message.To.Add(to);
-        //            message.Body = body;
-
-        //            if (pathBox.Text != "")
-        //            {
-        //                Attachment attachment = new Attachment(pathBox.Text);
-        //                message.Attachments.Add(attachment);
-        //            }
-
-        //            try
-        //            {
-        //                smtpClient.Send(message);
-        //                MessageBox.Show("Send successfully!");
-
-        //            }
-        //            catch (Exception e)
-        //            {
-        //                MessageBox.Show(e.Message);
-        //            }
-        //        }
-        //    }
-        //}
 
 
         private void attachBtn_Click(object sender, EventArgs e)

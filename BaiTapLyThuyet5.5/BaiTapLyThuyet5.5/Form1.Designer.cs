@@ -210,6 +210,7 @@ namespace BaiTapLyThuyet5._5
             this.inboxBox.UseCompatibleStateImageBehavior = false;
             this.inboxBox.View = System.Windows.Forms.View.Details;
             this.inboxBox.SelectedIndexChanged += new System.EventHandler(this.inboxBox_SelectedIndexChanged);
+            this.inboxBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.inboxBox_MouseClick);
             // 
             // content
             // 
