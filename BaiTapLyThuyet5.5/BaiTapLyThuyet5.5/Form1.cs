@@ -43,7 +43,7 @@ namespace BaiTapLyThuyet5._5
             var client = new ImapClient();
             using (var cancel = new CancellationTokenSource())
             {
-                client.Connect("find-uit.f1301.cyou", 993,true, cancel.Token);
+                client.Connect("imap.gmail.com", 993,true, cancel.Token);
                 client.AuthenticationMechanisms.Remove("XOAUTH");
                 client.Authenticate(send_emailBox.Text, pwdBox.Text, cancel.Token);
                 inbox = client.Inbox;
@@ -120,7 +120,7 @@ namespace BaiTapLyThuyet5._5
                 mail.Attachments.Add(attachment);
             }
 
-            SmtpClient smtpClient = new SmtpClient("find-uit.f1301.cyou");
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
